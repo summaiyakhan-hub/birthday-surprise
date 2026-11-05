@@ -1,0 +1,873 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'DM Sans', sans-serif;
+    color: #684451;
+
+    background:
+        radial-gradient(circle at 15% 15%, white, transparent 30%),
+        linear-gradient(135deg, #fff4f7, #ffe3ec, #fff0f4);
+
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* FLOATING HEARTS */
+
+.hearts-bg {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-heart {
+    position: absolute;
+    bottom: -40px;
+    color: #ec8cab;
+    opacity: .5;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-115vh) rotate(30deg);
+        opacity: 0;
+    }
+}
+
+/* INTRO */
+
+.intro {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 25px;
+}
+
+.intro-heart {
+    font-size: 85px;
+    color: #ed8baa;
+    animation: heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat {
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.small-heading {
+    color: #bd5479;
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.intro h1 {
+    font-family: 'Playfair Display', serif;
+    color: #9c4c6a;
+    font-size: clamp(38px, 8vw, 65px);
+    margin: 15px 0;
+}
+
+.intro-text {
+    color: #966b7a;
+    margin-bottom: 25px;
+}
+
+.intro small {
+    color: #b47b8e;
+    margin-top: 25px;
+}
+
+.intro-art {
+    display: block;
+    width: min(300px, 75vw);
+    max-height: 250px;
+    object-fit: contain;
+    margin: 12px auto 18px;
+
+    filter: drop-shadow(0 10px 16px #bd78902b);
+
+    animation: teddyFloat 3.5s ease-in-out infinite;
+}
+
+/* BUTTONS */
+
+button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    font-weight: bold;
+    transition: .3s;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px #d77d9c55;
+}
+
+.main-btn {
+    color: white;
+    background: linear-gradient(135deg, #f39ab6, #d96f94);
+    padding: 15px 27px;
+    border-radius: 35px;
+    font-size: 15px;
+    box-shadow: 0 7px 18px #d77d9c35;
+}
+
+.kiss-btn {
+    color: #bd6481;
+    background: white;
+    border: 1px solid #f0bfd0;
+    padding: 15px 27px;
+    border-radius: 35px;
+    font-size: 15px;
+}
+
+/* MAIN WEBSITE */
+
+.surprise {
+    position: relative;
+    z-index: 1;
+
+    max-width: 1000px;
+    margin: auto;
+    padding: 35px 20px 50px;
+
+    text-align: center;
+
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.top-tag,
+.section-kicker {
+    color: #bd5479;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.birthday-title {
+    font-family: 'Playfair Display', serif;
+    color: #9c4c6a;
+    font-size: clamp(38px, 7vw, 65px);
+    margin: 15px 0;
+}
+
+.birthday-title span {
+    color: #e47d9f;
+}
+
+.subtitle {
+    color: #966b7a;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+/* TEDDY SCENE */
+
+.scene {
+    position: relative;
+    max-width: 690px;
+    min-height: 390px;
+    margin: 20px auto;
+    padding: 15px;
+
+    overflow: hidden;
+    border-radius: 32px;
+
+    background: linear-gradient(180deg, #fffafd, #ffeaf1);
+
+    border: 1px solid white;
+    box-shadow: 0 16px 45px #c77a9230;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.teddy-container {
+    width: 100%;
+    height: 320px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+.teddy-image {
+    display: block;
+    width: min(78%, 420px);
+    max-height: 300px;
+
+    object-fit: contain;
+
+    filter: drop-shadow(0 8px 8px #a96d7a20);
+
+    animation: teddyFloat 3.5s ease-in-out infinite;
+}
+
+@keyframes teddyFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+/* SPARKLES */
+
+.sparkle {
+    position: absolute;
+    color: #e98aa8;
+    font-size: 30px;
+    animation: sparkle 2s infinite;
+}
+
+.sparkle-one {
+    top: 12%;
+    left: 12%;
+}
+
+.sparkle-two {
+    top: 20%;
+    right: 12%;
+    animation-delay: .5s;
+}
+
+.sparkle-three {
+    bottom: 20%;
+    right: 18%;
+    animation-delay: 1s;
+}
+
+@keyframes sparkle {
+    50% {
+        opacity: .3;
+        transform: scale(.7) rotate(25deg);
+    }
+}
+
+/* CAKE */
+
+.cake-area {
+    display: none;
+    position: relative;
+    z-index: 5;
+    margin: 0 auto 25px;
+    animation: cakeReveal .8s ease forwards;
+}
+
+.cake-area.show {
+    display: block;
+}
+
+@keyframes cakeReveal {
+    from {
+        opacity: 0;
+        transform: translateY(45px) scale(.6);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.cake {
+    position: relative;
+    width: 180px;
+    height: 125px;
+    margin: auto;
+}
+
+.cake-plate {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 180px;
+    height: 15px;
+    background: white;
+    border: 2px solid #efb8c9;
+    border-radius: 50%;
+}
+
+.cake-body {
+    position: absolute;
+    bottom: 12px;
+    left: 15px;
+    width: 150px;
+    height: 72px;
+    display: flex;
+}
+
+.cake-left,
+.cake-right {
+    width: 50%;
+    height: 72px;
+
+    background: linear-gradient(135deg, #f8b3c7, #e88eac);
+
+    border: 2px solid #d77e99;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-size: 20px;
+
+    transition: transform 1s ease;
+}
+
+.cake-left {
+    border-radius: 10px 0 0 10px;
+}
+
+.cake-right {
+    border-radius: 0 10px 10px 0;
+}
+
+.cake-top {
+    position: absolute;
+    z-index: 3;
+    top: 29px;
+    left: 15px;
+    width: 150px;
+    height: 25px;
+    border-radius: 50%;
+    background: #fff8f4;
+    border: 2px solid #e5a2b4;
+}
+
+.candle {
+    position: absolute;
+    z-index: 5;
+    top: 4px;
+    left: 86px;
+    width: 9px;
+    height: 29px;
+
+    background: repeating-linear-gradient(
+        135deg,
+        white 0 4px,
+        #e98cac 4px 7px
+    );
+
+    border-radius: 3px;
+}
+
+.flame {
+    position: absolute;
+    top: -16px;
+    left: -2px;
+    width: 13px;
+    height: 17px;
+    background: #ffc95f;
+    border-radius: 80% 10% 70% 40%;
+    box-shadow: 0 0 15px #ffc95f;
+    animation: flame .5s infinite alternate;
+}
+
+@keyframes flame {
+    to {
+        transform: rotate(-12deg) scale(.85);
+    }
+}
+
+.knife {
+    position: absolute;
+    z-index: 8;
+    top: 0;
+    right: -30px;
+    font-size: 30px;
+    opacity: 0;
+}
+
+.cake.cut .knife {
+    animation: knifeCut 1s ease forwards;
+}
+
+@keyframes knifeCut {
+    0% {
+        opacity: 0;
+        transform: translate(-20px, -20px) rotate(-35deg);
+    }
+
+    35% {
+        opacity: 1;
+        transform: translate(-35px, 35px) rotate(10deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(10px, 85px) rotate(40deg);
+    }
+}
+
+.cake.cut .cake-left {
+    transform: translateX(-22px) rotate(-6deg);
+}
+
+.cake.cut .cake-right {
+    transform: translateX(22px) rotate(6deg);
+}
+
+.cake-caption {
+    color: #ad7085;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* NICKNAMES */
+
+.names {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 25px auto;
+}
+
+.names span {
+    padding: 10px 17px;
+    background: white;
+    border: 1px solid #f5cada;
+    border-radius: 25px;
+    color: #b45e7b;
+    font-size: 12px;
+    box-shadow: 0 4px 12px #d77d9c15;
+}
+
+/* LOVE LETTER */
+
+.message-card {
+    max-width: 610px;
+    margin: 25px auto;
+    padding: 28px;
+    border-radius: 25px;
+    background: #ffffffdc;
+    border: 1px solid white;
+    box-shadow: 0 12px 35px #c77a9220;
+}
+
+.letter-icon {
+    font-size: 32px;
+}
+
+.message-card h2,
+.section-title {
+    font-family: 'Playfair Display', serif;
+    color: #a45070;
+    font-size: 27px;
+    margin: 12px 0;
+}
+
+.message-card p {
+    color: #896674;
+    font-size: 14px;
+    line-height: 1.9;
+    white-space: pre-line;
+}
+
+.signature {
+    color: #d16f91;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 19px;
+    margin-top: 18px;
+}
+
+/* ROSE TEDDY */
+
+.gift-section {
+    max-width: 610px;
+    margin: 25px auto;
+    padding: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    border-radius: 25px;
+    background: #ffffffdc;
+    border: 1px solid white;
+    box-shadow: 0 12px 35px #c77a9220;
+}
+
+.gift-image {
+    width: min(42%, 210px);
+    max-height: 210px;
+    object-fit: contain;
+
+    filter: drop-shadow(0 7px 10px #a96d7a20);
+
+    animation: teddyFloat 3.5s ease-in-out infinite;
+}
+
+.gift-text {
+    flex: 1;
+    color: #a45070;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 3vw, 25px);
+    line-height: 1.45;
+}
+
+.gift-text span {
+    display: block;
+    margin-top: 8px;
+    color: #966b7a;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* POLAROID GALLERY */
+
+.polaroid-section {
+    margin: 55px auto 35px;
+    padding: 34px 20px 42px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(
+        145deg,
+        #fffafd,
+        #ffeaf2
+    );
+
+    border: 1px solid white;
+    box-shadow: 0 14px 40px #c77a921c;
+}
+
+.section-title {
+    font-size: clamp(27px, 5vw, 38px);
+    margin: 10px 0;
+}
+
+.section-subtitle {
+    color: #966b7a;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0 auto 28px;
+    max-width: 500px;
+}
+
+.polaroid-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px 22px;
+    align-items: center;
+    justify-items: center;
+}
+
+.polaroid {
+    width: 100%;
+    max-width: 205px;
+
+    background: white;
+    padding: 10px 10px 16px;
+
+    border-radius: 4px;
+
+    box-shadow: 0 9px 22px #9c586c25;
+
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 170px;
+
+    object-fit: contain;
+
+    display: block;
+
+    background: #fff7fa;
+    border-radius: 2px;
+}
+
+.polaroid figcaption {
+    color: #a45e77;
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    line-height: 1.4;
+    padding: 12px 3px 0;
+    min-height: 48px;
+}
+
+.rotate-left {
+    transform: rotate(-5deg);
+}
+
+.rotate-right {
+    transform: rotate(5deg);
+}
+
+.rotate-small {
+    transform: rotate(-2deg);
+}
+
+.polaroid:hover {
+    transform: translateY(-9px) rotate(0deg) scale(1.04);
+    box-shadow: 0 16px 28px #9c586c35;
+}
+
+/* EXTRA LOVE NOTE */
+
+.mini-note {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 20px 24px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    background: #fff9fc;
+    border: 1px dashed #e9a9bd;
+    border-radius: 20px;
+
+    color: #966b7a;
+    line-height: 1.7;
+    font-size: 13px;
+    text-align: left;
+}
+
+.mini-note span {
+    color: #e47d9f;
+    font-size: 30px;
+}
+
+/* BUTTON AREA */
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 25px auto;
+}
+
+.footer {
+    color: #b47b8e;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+}
+
+/* KISSING ANIMATION */
+
+.kiss-layer,
+.confetti-layer {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.kiss-layer {
+    z-index: 9999;
+}
+
+.confetti-layer {
+    z-index: 9998;
+}
+
+.kiss-print {
+    position: absolute;
+    bottom: -60px;
+    animation: kissFly var(--duration) ease-out forwards;
+    filter: drop-shadow(0 3px 5px #e77b9c55);
+}
+
+@keyframes kissFly {
+    0% {
+        transform: translate(0, 0) rotate(var(--rotate)) scale(.3);
+        opacity: 0;
+    }
+
+    15%, 75% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--drift), -115vh)
+                   rotate(var(--end-rotate))
+                   scale(var(--scale));
+        opacity: 0;
+    }
+}
+
+/* CONFETTI */
+
+.confetti-bit {
+    position: absolute;
+    top: 50%;
+    font-size: 20px;
+    animation: confettiBurst 1.8s ease-out forwards;
+}
+
+@keyframes confettiBurst {
+    from {
+        opacity: 1;
+        transform: translate(0, 0) scale(.5);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(var(--x), var(--y))
+                   rotate(360deg) scale(1.5);
+    }
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 800px) {
+
+    .polaroid-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .intro {
+        padding: 20px 15px;
+    }
+
+    .intro-art {
+        width: min(260px, 78vw);
+        max-height: 205px;
+    }
+
+    .surprise {
+        padding: 25px 13px 35px;
+    }
+
+    .scene {
+        min-height: 360px;
+        border-radius: 24px;
+        padding: 10px;
+    }
+
+    .teddy-container {
+        height: 285px;
+    }
+
+    .teddy-image {
+        width: 90%;
+        max-height: 260px;
+    }
+
+    .message-card {
+        padding: 22px 18px;
+    }
+
+    .message-card p {
+        font-size: 13px;
+    }
+
+    .birthday-title {
+        font-size: 39px;
+    }
+
+    .cake {
+        transform: scale(.9);
+    }
+
+    .gift-section {
+        gap: 10px;
+        padding: 16px 12px;
+    }
+
+    .gift-image {
+        width: 42%;
+        max-height: 160px;
+    }
+
+    .gift-text {
+        font-size: 18px;
+    }
+
+    .buttons {
+        gap: 10px;
+    }
+
+    .buttons button {
+        max-width: 100%;
+        font-size: 13px;
+        padding: 13px 20px;
+    }
+
+    .polaroid-section {
+        padding: 28px 12px;
+        margin-top: 40px;
+    }
+
+    .polaroid-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px 12px;
+    }
+
+    .polaroid {
+        padding: 8px 8px 13px;
+    }
+
+    .polaroid img {
+        height: 135px;
+    }
+
+    .polaroid figcaption {
+        font-size: 11px;
+    }
+
+    .mini-note {
+        padding: 16px;
+        font-size: 12px;
+    }
+
+}
